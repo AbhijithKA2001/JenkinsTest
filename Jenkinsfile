@@ -1,10 +1,32 @@
 pipeline {
     agent any
-
+    tools {
+        nodejs 'Node'
+    }
     stages {
-        stage('Hello') {
+        stage('Checkout') {
             steps {
-                echo 'Hello, World!'
+                checkout scm
+            }
+        }
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('Linting') {
+            steps {
+                sh 'npm run lint'
+            }
+        }
+        stage('Type Checking') {
+            steps {
+                sh 'npm run flow'
+            }
+        }
+        stage('Unit Tests') {
+            steps {
+                sh 'npm run test'
             }
         }
     }

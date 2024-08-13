@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/your-repo.git', branch: 'main'
+                checkout scm
             }
         }
         stage('Install Dependencies') {
@@ -24,6 +24,11 @@ pipeline {
         stage('Unit Tests') {
             steps {
                 sh 'npm run test'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'npm run build'
             }
         }
     }

@@ -86,7 +86,7 @@ const App: () => Node = () => {
             <DebugInstructions />
           </Section>
           <Section title="Learn More">
-            Read the docs to discover what to do prevsio:
+            Read the docs to discover what to do prevsion:
           </Section>
           <LearnMoreLinks />
         </View>
